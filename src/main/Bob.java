@@ -29,9 +29,9 @@ public class Bob {
     }
     
     public BigInteger calcV( List<BigInteger> x ) {
-        // This is legal as long as e is 25 bit max
-        Integer pow = Integer.valueOf( e.toString() );
-        BigInteger powedK = k.pow( pow );
+
+
+        BigInteger powedK = k.modPow( pow, N );
         return x.get( b ).add( powedK ).mod( N );
     }
     
