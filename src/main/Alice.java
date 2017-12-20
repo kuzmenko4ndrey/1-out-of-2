@@ -34,7 +34,7 @@ public class Alice {
         BigInteger phi = p.add( BigInteger.valueOf( -1 ) ).multiply( q.add( BigInteger.valueOf( -1 ) ) );
         
         e = N;
-        while ( e.compareTo( phi ) >= 0 || phi.mod( e ).equals( BigInteger.valueOf( 0 ) ) ) {
+        while ( e.compareTo( phi ) >= 0 || phi.mod( e ).equals( BigInteger.ZERO ) ) {
             e = BigInteger.probablePrime( 25, new Random() );
         }
         d = e.modInverse( phi );

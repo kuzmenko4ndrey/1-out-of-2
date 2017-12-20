@@ -17,7 +17,9 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Alice a = new Alice( new BigInteger( "56168643" ), new BigInteger( "6384353436513" ) );
+        String M0 = "56168643465843235168468261354321654";
+        String M1 = "638435343651338435667815638464964987614348";
+        Alice a = new Alice( new BigInteger( M0 ), new BigInteger( M1 ) );
         a.generateRandomValues();
         
         Bob b0 = new Bob( 0 );
@@ -26,8 +28,10 @@ public class Main {
         b0.setPublicKeys( a.getE(), a.getN() );
         b1.setPublicKeys( a.getE(), a.getN() );
         
-        System.out.println( b0.showNeededM( a.getMChanged( b0.calcV( a.getX() ) ) ).toString() );
-        System.out.println( b1.showNeededM( a.getMChanged( b1.calcV( a.getX() ) ) ).toString() );
+        String m0 = b0.showNeededM( a.getMChanged( b0.calcV( a.getX() ) ) ).toString();
+        String m1 = b1.showNeededM( a.getMChanged( b1.calcV( a.getX() ) ) ).toString();
+        System.out.println( m0 + ' ' + m0.equals( M0 ) );
+        System.out.println( m1 + ' ' + m1.equals( M1 ) );
     }
     
 }
