@@ -31,7 +31,7 @@ public class Bob {
     public BigInteger calcV( List<BigInteger> x ) {
 
 
-        BigInteger powedK = k.modPow( pow, N );
+        BigInteger powedK = k.modPow( e, N );
         return x.get( b ).add( powedK ).mod( N );
     }
     
